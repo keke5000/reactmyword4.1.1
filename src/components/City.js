@@ -2,10 +2,12 @@ import React, {Component} from 'react'
 
 class City extends Component {
     render() {
-        console.log("Ollaan cityssa", this.props);
-        // let city = this.props.city;
         return (
-                <tr className="name"><td>{this.props.city.name}</td></tr>
+                <tr>
+                    <td>{this.props.city.name}</td>
+                    <td>{this.props.city.countryName}</td>
+                    <td>{this.props.city.population}</td>
+                </tr>
         )
     }
 }

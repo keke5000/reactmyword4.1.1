@@ -15,12 +15,14 @@ import ReadCountry from "./components/ReadCountry";
 import TopNavigation from "./TopNavigation";
 
 class App extends Component {
+
     // constructor(props) {
     //     super(props);
     //     this.state = {
     //         sidebarOpen: false
     //     };
     //     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+
     // }
     //
     // onSetSidebarOpen(open) {
