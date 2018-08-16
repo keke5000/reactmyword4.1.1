@@ -12,7 +12,7 @@ class ChatPage extends Component {
             messages: []
         };
 
-        this.socket = io('localhost:8000');
+        this.socket = io('http://192.168.35.107:8000');
 
         this.socket.on('receivemessage', function(data){
             addMessage(data);
