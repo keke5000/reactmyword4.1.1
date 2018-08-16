@@ -12,6 +12,7 @@ import NotFound from './NotFound';
 import CityList from './components/CityList';
 import CountryList from "./components/CountryList";
 import ReadCountry from "./components/ReadCountry";
+import UpdateCountry from "./components/UpdateCountry";
 
 class App extends Component {
     // constructor(props) {
@@ -30,7 +31,7 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="content">
-                    <div className="jumbtron">
+                    <div className="jumbotron">
                         <Header/>
                     </div>
                     <hr/>
@@ -49,6 +50,7 @@ class App extends Component {
                             <Route path="/citylist" component={CityList}/>
                             <Route path="/countrylist" component={CountryList}/>
                             <Route path="/readcountry/:code" name="readcountry" component={ReadCountry}/>
+                            <Route path="/updatecountry/:code" name="updatecountry" component={UpdateCountry}/>
                             <Route component={NotFound}/>
                         </Switch>
                     </Grid>
