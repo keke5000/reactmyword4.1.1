@@ -8,10 +8,7 @@ class CityList extends Component {
         cities: {content: []},
         page: 1
     };
-
-    componentDidMount() {
-        console.log("Ollaan componentMountissa");
-        var self = this;
+    getCities = () => {
         var url = '/api/cities?page=' + (this.state.page - 1);
         console.log(url)
         fetch(url)
@@ -25,14 +22,40 @@ class CityList extends Component {
             })
             .then((data) => {
                 console.log("Tuleeko dataa???", data);
-                self.setState({cities: data, page: (data.number + 1)})
+                this.setState({cities: data, page: (data.number + 1)})
                 console.log(this.state)
             })
     };
 
-    changehandler = (e)=>{
-        console.log(e);
+    componentDidMount() {
+        console.log("Ollaan componentMountissa");
+        this.getCities();
     };
+
+    changehandler = (e) => {
+        this.setState({page: e.target.value});
+    };
+
+    refreshPage = (e) => {
+        if (e.key === 'Enter') {
+            this.getCities();
+        }
+    };
+
+    previouspage = () => {
+        var p = this.state.page;
+        if (p!==1) {
+            this.setState({page: (p - 1)}, this.getCities);
+        }
+    };
+    nextpage = () => {
+        var p = this.state.page;
+        console.log(p);
+        if (p!==this.state.cities.totalPages) {
+            this.setState({page: (p + 1)}, this.getCities);
+        }
+    };
+
 
     render() {
         var citiedData = this.state.cities.content;
@@ -42,9 +65,14 @@ class CityList extends Component {
         return (
             <div>
                 <p style={{textAlign: 'center', marginRight: '2em'}}>
-                    Sivu:
-                    <input value={this.state.cities.number+1} onChange={this.changehandler}/>
-                    / {this.state.cities.totalPages}</p>
+                    Sivu:<br/>
+                    <input value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
+                    / {this.state.cities.totalPages}
+                    <br/>
+                    {this.state.page!==1 &&<button onClick={this.previouspage}>Previous page</button>}
+                    {this.state.page!==this.state.cities.totalPages &&<button onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
+                </p>
+
                 <table className='table-striped table-hover table-bordered'>
                     <thead>
                     <tr>
