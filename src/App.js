@@ -12,13 +12,14 @@ import NotFound from './NotFound';
 import CityList from './components/CityList';
 import CountryList from "./components/CountryList";
 import ReadCountry from "./components/ReadCountry";
+import TopNavigation from "./TopNavigation";
 
 class App extends Component {
 
     // constructor(props) {
     //     super(props);
     //     this.state = {
-    //         sidebarOpen: true
+    //         sidebarOpen: false
     //     };
     //     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
 
@@ -32,10 +33,10 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="content">
-                    <div className="jumbtron">
+                    <div className="jumbotron">
                         <Header/>
                     </div>
-                    <hr/>
+                    <TopNavigation/>
                     {/*<Sidebar*/}
                         {/*sidebar={<Navigation/>}*/}
                         {/*open={this.state.sidebarOpen}*/}
