@@ -30,6 +30,10 @@ class CityList extends Component {
             })
     };
 
+    changehandler = (e)=>{
+        console.log(e);
+    };
+
     render() {
         var citiedData = this.state.cities.content;
         var citiesList = citiedData.map((city) => {
@@ -39,9 +43,9 @@ class CityList extends Component {
             <div>
                 <p style={{textAlign: 'center', marginRight: '2em'}}>
                     Sivu:
-                    <input value={this.state.cities.number+1}/>
+                    <input value={this.state.cities.number+1} onChange={this.changehandler}/>
                     / {this.state.cities.totalPages}</p>
-                <table>
+                <table className='table-striped table-hover table-bordered'>
                     <thead>
                     <tr>
                         <td><b>Name</b></td>
