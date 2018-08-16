@@ -13,12 +13,13 @@ import CityList from './components/CityList';
 import CountryList from "./components/CountryList";
 import ReadCountry from "./components/ReadCountry";
 import UpdateCountry from "./components/UpdateCountry";
+import TopNavigation from "./TopNavigation";
 
 class App extends Component {
     // constructor(props) {
     //     super(props);
     //     this.state = {
-    //         sidebarOpen: true
+    //         sidebarOpen: false
     //     };
     //     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     // }
@@ -34,7 +35,7 @@ class App extends Component {
                     <div className="jumbotron">
                         <Header/>
                     </div>
-                    <hr/>
+                    <TopNavigation/>
                     {/*<Sidebar*/}
                         {/*sidebar={<Navigation/>}*/}
                         {/*open={this.state.sidebarOpen}*/}
