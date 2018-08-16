@@ -62,7 +62,7 @@ class ChatPage extends Component {
                     <div className="col-4">
                         <div className="card">
                             <div className="card-body">
-                                <div className="card-title">Global Chat</div>
+                                <div className="card-title"><h2>TOTAL SCHLACK</h2></div>
                                 <hr/>
                                 <div className="messages">
                                     {this.state.messages.map(message => {
