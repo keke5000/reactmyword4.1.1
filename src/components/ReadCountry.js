@@ -22,71 +22,17 @@ class ReadCountry extends Component {
     };
 
     getImageHeadOfState() {
-        var flickerAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-        $.getJSON(flickerAPI, {
-            tags: "bird",
-            tagmode: "any",
-            format: "json"
-        })
-            .done(function (data) {
-                $.each(data.items, function (i, item) {
-                    $("<img/>").attr("src", item.media.m).appendTo("#headofstate");
-                    if (i === 8) {
-                        return false;
-                    }
-                });
+        var hakuurl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCRpR4LEhRMVAOr12kpayiEUbfGIT-cuX4&cx=008282869857669698649:vhsb_0llar8&q=lectures";
+        fetch(hakuurl)
+            .then(resp=>{
+                return resp.json();
+            })
+            .then(olio=>{
+                console.log(olio);
+                // console.log(olio.items[0].pagemap.cse_image[0].src);
             });
     }
 
-// var flickerAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-// // var flickerAPI = 'https://rata.digitraffic.fi/api/v1/live-trains/';
-// console.log('kojuibnj');
-
-// fetch(flickerAPI, {
-//     // tags: this.state.country.headOfState,
-//     tags: "bird",
-//     tagmode: "any",
-//     format: "json",
-//     mode: 'no-cors'
-// })
-//     .then(data => {
-//         console.log("Pöö");
-//         console.log(data);
-//         return data.json();
-//     })
-//     .then(olio => {
-//         // document.getElementById('headofstate').innerText = olio[3].trainNumber;
-//         console.log(olio);
-//     })
-
-// let url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json&nojsoncallback=true';
-// let itse = this;
-// fetch(url)
-//     .then((resp) => {
-//         console.log("Haettu", resp);
-//         return resp.json();
-//     })
-//     .then((olio) => {
-//         console.log("Json joujou", itse.state);
-//         itse.setState({country: olio});
-//     });
-// (function() {
-//     var flickerAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-//     $.getJSON( flickerAPI, {
-//         tags: "bird",
-//         tagmode: "any",
-//         format: "json"
-//     })
-//         .done(function( data ) {
-//             $.each( data.items, function( i, item ) {
-//                 $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-//                 if ( i === 8 ) {
-//                     return false;
-//                 }
-//             });
-//         });
-// })();
-// }
 
     render() {
         return (
