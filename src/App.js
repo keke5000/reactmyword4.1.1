@@ -13,6 +13,7 @@ import CityList from './components/CityList';
 import CountryList from "./components/CountryList";
 import ReadCountry from "./components/ReadCountry";
 import TopNavigation from "./TopNavigation";
+import ChatPage from "./components/chat/ChatPage";
 
 class App extends Component {
     // constructor(props) {
@@ -50,6 +51,7 @@ class App extends Component {
                             <Route path="/citylist" component={CityList}/>
                             <Route path="/countrylist" component={CountryList}/>
                             <Route path="/readcountry/:code" name="readcountry" component={ReadCountry}/>
+                            <Route path="/chat/" component={ChatPage}/>
                             <Route component={NotFound}/>
                         </Switch>
                     </Grid>
