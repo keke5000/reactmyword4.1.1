@@ -68,7 +68,7 @@ class CountryList extends Component {
         });
         return (
             <div>
-                <p style={{textAlign: 'center', marginRight: '2em'}}>
+                <div style={{textAlign: 'center', marginRight: '2em'}}>
                     Sivu:<br/>
                     <input value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
                     / {this.state.maat.totalPages}
@@ -76,7 +76,7 @@ class CountryList extends Component {
                     {this.state.page !== 1 && <button onClick={this.previouspage}>Previous page</button>}
                     {this.state.page !== this.state.maat.totalPages &&
                     <button onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
-                </p>
+                </div>
                 <table className='table table-hover'>
                     <thead>
                     <tr>
