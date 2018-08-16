@@ -15,15 +15,15 @@ class CountryList extends Component {
 
     haemaatfetch = () => {
         let itse = this;
-        const url = '/api/countries/paginated?page='+(this.state.page-1);
+        const url = '/api/countries/paginated?page=' + (this.state.page - 1);
         fetch(url)
             .then((resp) => {
                 console.log("Haettu", resp);
                 return resp.json();
             })
-            .then((olio)=> {
+            .then((olio) => {
                 console.log("Json parsittu", itse.state);
-                itse.setState({maat: olio, page: olio.number+1});
+                itse.setState({maat: olio, page: olio.number + 1});
             });
     };
 
@@ -39,14 +39,14 @@ class CountryList extends Component {
 
     previouspage = () => {
         var p = this.state.page;
-        if (p!==1) {
+        if (p !== 1) {
             this.setState({page: (p - 1)}, this.haemaatfetch);
         }
     };
     nextpage = () => {
         var p = this.state.page;
         console.log(p);
-        if (p!==this.state.maat.totalPages) {
+        if (p !== this.state.maat.totalPages) {
             this.setState({page: (p + 1)}, this.haemaatfetch);
         }
     };
@@ -73,8 +73,9 @@ class CountryList extends Component {
                     <input value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
                     / {this.state.maat.totalPages}
                     <br/>
-                    {this.state.page!==1 &&<button onClick={this.previouspage}>Previous page</button>}
-                    {this.state.page!==this.state.maat.totalPages &&<button onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
+                    {this.state.page !== 1 && <button onClick={this.previouspage}>Previous page</button>}
+                    {this.state.page !== this.state.maat.totalPages &&
+                    <button onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
                 </p>
                 <table className='table table-hover'>
                     <thead>
@@ -90,21 +91,10 @@ class CountryList extends Component {
                     </thead>
                     <tbody>{maaelementit}</tbody>
                 </table>
-
                 <hr/>
-
-                <input value={this.state.page} onChange={this.muutasivu} onKeyPress={this.näpytintäNäppäilty}/>
-                <button type='button'  onClick={this.haemaatfetch}>Hae sivu</button>
             </div>
         );
     }
-    muutasivu = (evt) => {
-        this.setState({page: evt.target.value});
-    };
-    näpytintäNäppäilty = (evt) => {
-        if (evt.key === 'Enter') {
-            this.haemaatfetch();
-        }
-    }
 }
+
 export default CountryList;
