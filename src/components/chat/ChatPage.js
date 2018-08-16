@@ -1,16 +1,23 @@
 import React, {Component} from 'react'
 import io from "socket.io-client";
-// import {subscribeToTimer, message} from './client/api';
+import {subscribeToTimer} from "./client/api";
 
 class ChatPage extends Component {
     constructor(props){
         super(props);
 
+
         this.state = {
             username: '',
             message: '',
-            messages: []
+            messages: [],
+            timestamp: ''
         };
+
+
+        subscribeToTimer((err, timestamp) => this.setState({
+            timestamp
+        }));
 
         this.socket = io('http://192.168.35.107:8000');
 
@@ -62,7 +69,8 @@ class ChatPage extends Component {
                     <div className="col-4">
                         <div className="card">
                             <div className="card-body">
-                                <div className="card-title">Global Chat</div>
+                                <div className="card-title"><h2>TOTAL SCHLACK</h2></div>
+                                <div><p>Time is: {this.state.timestamp}</p></div>
                                 <hr/>
                                 <div className="messages">
                                     {this.state.messages.map(message => {
