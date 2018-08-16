@@ -16,15 +16,15 @@ import ReadCountry from "./components/ReadCountry";
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            sidebarOpen: true
-        };
-        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    //     this.state = {
+    //         sidebarOpen: true
+    //     };
+    //     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
 
-    onSetSidebarOpen(open) {
-        this.setState({sidebarOpen: open});
-    }
+    // onSetSidebarOpen(open) {
+    //     this.setState({sidebarOpen: open});
+    // }
 
     render() {
         return (
@@ -34,15 +34,15 @@ class App extends Component {
                         <Header/>
                     </div>
                     <hr/>
-                    <Sidebar
-                        sidebar={<Navigation/>}
-                        open={this.state.sidebarOpen}
-                        onSetOpen={this.onSetSidebarOpen}
-                        styles={{sidebar: {background: "white"}}}>
-                        <button onClick={() => this.onSetSidebarOpen(true)}>
-                            Open sidebar
-                        </button>
-                    </Sidebar>
+                    {/*<Sidebar*/}
+                        {/*sidebar={<Navigation/>}*/}
+                        {/*open={this.state.sidebarOpen}*/}
+                        {/*onSetOpen={this.onSetSidebarOpen}*/}
+                        {/*styles={{sidebar: {background: "white"}}}>*/}
+                        {/*<button onClick={() => this.onSetSidebarOpen(true)}>*/}
+                            {/*Open sidebar*/}
+                        {/*</button>*/}
+                    {/*</Sidebar>*/}
                     <Grid>
                         <Switch>
                             <Route exact path="/" component={Home}/>

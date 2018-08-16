@@ -29,9 +29,10 @@ class CountryList extends Component {
 
     siirry = (e) => {
         // e.preventDefault();
+        let tama=this;
         console.log(e);
-        localStorage.setItem("id", e);
-        this.props.history.push('/readcountry/'+ e);
+        // localStorage.setItem("id", e);
+        // this.props.history.push('/readcountry/'+ e);
     };
 
     render() {
@@ -43,12 +44,11 @@ class CountryList extends Component {
                 <td>{maa.continent}</td>
                 <td>{maa.capital ? maa.capital.name : '-'}</td>
                 <td>{maa.population}</td>
-                <td><a href="" onClick={this.siirry(maa.code)}>Read</a></td>
+                <td><a onClick={this.siirry(maa.name)}>Read</a></td>
             </tr>)
         });
         return (
             <div>
-                <button>   </button>
                 <p style={{textAlign: 'right', marginRight: '2em'}}>Sivu: {this.state.maat.number+1} / {this.state.maat.totalPages}</p>
                 <table className='table-striped table-hover table-bordered'>
                     <thead>
@@ -66,7 +66,7 @@ class CountryList extends Component {
                 <hr/>
 
                 <input value={this.state.sivu} onChange={this.muutasivu} onKeyPress={this.näpytintäNäppäilty}/>
-                <button type='button' onClick={this.haemaatfetch}>Hae sivu</button>
+                <button type='button'  onClick={this.haemaatfetch}>Hae sivu</button>
             </div>
         );
     }
