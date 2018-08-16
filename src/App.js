@@ -16,12 +16,14 @@ import TopNavigation from "./TopNavigation";
 import ChatPage from "./components/chat/ChatPage";
 
 class App extends Component {
+
     // constructor(props) {
     //     super(props);
     //     this.state = {
     //         sidebarOpen: false
     //     };
     //     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+
     // }
     //
     // onSetSidebarOpen(open) {
