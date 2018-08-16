@@ -1,10 +1,13 @@
-// import openSocket from 'socket.io-client';
-// const  socket = openSocket('http://192.168.35.107:8000');
-//
-// function subscribeToTimer(cb) {
-//     socket.on('timer', timestamp => cb(null, timestamp));
-//     socket.emit('subscribeToTimer', 1000);
-// }
+import openSocket from 'socket.io-client';
+const  socket = openSocket('http://192.168.35.107:8000');
+
+function subscribeToTimer(cb) {
+    socket.on('timer', timestamp => cb(null, timestamp));
+    socket.emit('subscribeToTimer', 1000);
+}
+
+export { subscribeToTimer };
+
 // function message(msg, cb) {
 //     socket.on('error', function (err) {
 //         console.log('received socket error:');
@@ -14,7 +17,6 @@
 //     socket.emit('message', { message: msg.text }, cb)
 // }
 //
-// export { subscribeToTimer, message };
 //
 // // function registerHandler(onMessageReceived) {
 // //     socket.on('message', onMessageReceived)
