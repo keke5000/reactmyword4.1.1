@@ -11,6 +11,7 @@ import NotFound from './NotFound';
 import Sidebar from 'react-sidebar';
 import CityList from '../../reactmyworld4.1.1/src/components/CityList';
 import CountryList from "./components/CountryList";
+import ReadCountry from "./components/ReadCountry";
 
 class App extends Component {
     constructor(props) {
@@ -47,6 +48,7 @@ class App extends Component {
                             <Route exact path="/" component={Home}/>
                             <Route path="/citylist" component={CityList}/>
                             <Route path="/countrylist" component={CountryList}/>
+                            <Route path="/readcountry/:code" name="readcountry" component={ReadCountry}/>
                             <Route component={NotFound}/>
                         </Switch>
                     </Grid>
