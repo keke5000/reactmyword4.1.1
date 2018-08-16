@@ -1,4 +1,9 @@
+var express = require('express');
 const io = require('socket.io')();
+var app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 io.on('connection', (client) => {
     client.on('subscribeToTimer', (interval) => {
@@ -15,18 +20,7 @@ io.on('connection', function(socket){
         io.emit('receivemessage', data);
     });
 });
-//
-// io.on('connection', function(socket){
-//     socket.on('message', (msg) => {
-//         console.log("Päästiin servun socket. ja socket emit käskyyn ja msg on: ", msg);
-//         socket.emit('message', msg);
-//     });
-// });
-//
-// http.listen(3000, function(){
-//     console.log('listening on *:3000');
-// });
 
-const port = 8000;
+const port = "8000";
 io.listen(port);
 console.log('listening on port ', port);

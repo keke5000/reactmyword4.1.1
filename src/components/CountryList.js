@@ -70,12 +70,12 @@ class CountryList extends Component {
             <div>
                 <div style={{textAlign: 'center', marginRight: '2em'}}>
                     Sivu:<br/>
-                    <input value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
+                    <input style={{width: '2em'}} value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
                     / {this.state.maat.totalPages}
                     <br/>
-                    {this.state.page !== 1 && <button onClick={this.previouspage}>Previous page</button>}
+                    {this.state.page !== 1 && <button className="btn btn-primary" onClick={this.previouspage}>Previous page</button>}
                     {this.state.page !== this.state.maat.totalPages &&
-                    <button onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
+                    <button className="btn btn-primary" onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
                 </div>
                 <table className='table table-hover'>
                     <thead>
