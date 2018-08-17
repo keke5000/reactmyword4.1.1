@@ -15,6 +15,7 @@ import ReadCountry from "./components/ReadCountry";
 import UpdateCountry from "./components/UpdateCountry";
 import TopNavigation from "./TopNavigation";
 import ChatPage from "./components/chat/ChatPage";
+import ReadCity from "./components/ReadCity";
 
 class App extends Component {
 
@@ -55,6 +56,7 @@ class App extends Component {
                             <Route path="/countrylist" component={CountryList}/>
                             <Route path="/readcountry/:code" name="readcountry" component={ReadCountry}/>
                             <Route path="/updatecountry/:code" name="updatecountry" component={UpdateCountry}/>
+                            <Route path="/readcity/:id" name="readcity" component={ReadCity}/>
                             <Route path="/chat/" component={ChatPage}/>
                             <Route component={NotFound}/>
                         </Switch>
