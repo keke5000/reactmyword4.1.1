@@ -63,7 +63,7 @@ class CountryList extends Component {
                 <td>{maa.capital ? maa.capital.name : '-'}</td>
                 <td>{maa.continent}</td>
                 {/*<td><a href="" onClick={this.siirry(maa.code)}>Read</a></td>*/}
-                <td><Link to={'/readcountry/' + maa.code}>Read</Link></td>
+                <td><Link to={'/readcountry/' + maa.code}>Details</Link></td>
             </tr>)
         });
         return (
