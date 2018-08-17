@@ -14,14 +14,17 @@ import CountryList from "./components/CountryList";
 import ReadCountry from "./components/ReadCountry";
 import UpdateCountry from "./components/UpdateCountry";
 import TopNavigation from "./TopNavigation";
+import ChatPage from "./components/chat/ChatPage";
 
 class App extends Component {
+
     // constructor(props) {
     //     super(props);
     //     this.state = {
     //         sidebarOpen: false
     //     };
     //     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+
     // }
     //
     // onSetSidebarOpen(open) {
@@ -52,6 +55,7 @@ class App extends Component {
                             <Route path="/countrylist" component={CountryList}/>
                             <Route path="/readcountry/:code" name="readcountry" component={ReadCountry}/>
                             <Route path="/updatecountry/:code" name="updatecountry" component={UpdateCountry}/>
+                            <Route path="/chat/" component={ChatPage}/>
                             <Route component={NotFound}/>
                         </Switch>
                     </Grid>

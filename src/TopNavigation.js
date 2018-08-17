@@ -20,6 +20,7 @@ class TopNavigation extends Component {
                             <MenuItem eventKey={2.1} href="/citylist">List of Cities</MenuItem>
                             <MenuItem eventKey={2.2} href="/countrylist">List of Countries</MenuItem>
                         </NavDropdown>
+                        <NavItem eventKey={3} href="/chat">Chat</NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

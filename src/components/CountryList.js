@@ -5,7 +5,7 @@ import Link from "react-router-dom/es/Link";
 class CountryList extends Component {
     state = {
         maat: {content: []},
-        sivu: 1
+        page: 1
     };
 
     componentDidMount() {
@@ -15,24 +15,42 @@ class CountryList extends Component {
 
     haemaatfetch = () => {
         let itse = this;
-        const url = '/api/countries/paginated?page='+(this.state.sivu-1);
+        const url = '/api/countries/paginated?page=' + (this.state.page - 1);
         fetch(url)
             .then((resp) => {
                 console.log("Haettu", resp);
                 return resp.json();
             })
-            .then((olio)=> {
+            .then((olio) => {
                 console.log("Json parsittu", itse.state);
-                itse.setState({maat: olio, sivu: olio.number+1});
+                itse.setState({maat: olio, page: olio.number + 1});
             });
     };
 
-    // siirry = (e) => {
-    //     // e.preventDefault();
-    //     console.log(e);
-    //     localStorage.setItem("id", e);
-    //     this.props.history.push('/readcountry/'+ e);
-    // };
+    changehandler = (e) => {
+        this.setState({page: e.target.value});
+    };
+
+    refreshPage = (e) => {
+        if (e.key === 'Enter') {
+            this.haemaatfetch();
+        }
+    };
+
+    previouspage = () => {
+        var p = this.state.page;
+        if (p !== 1) {
+            this.setState({page: (p - 1)}, this.haemaatfetch);
+        }
+    };
+    nextpage = () => {
+        var p = this.state.page;
+        console.log(p);
+        if (p !== this.state.maat.totalPages) {
+            this.setState({page: (p + 1)}, this.haemaatfetch);
+        }
+    };
+
 
     render() {
         const maadata = this.state.maat.content;
@@ -40,6 +58,7 @@ class CountryList extends Component {
             return (<tr key={maa.code}>
                 <td>{maa.name}</td>
                 <td>{maa.population}</td>
+
                 {/*<td>{maa.localName}</td>*/}
                 <td>{maa.capital ? maa.capital.name : '-'}</td>
                 <td>{maa.continent}</td>
@@ -49,7 +68,15 @@ class CountryList extends Component {
         });
         return (
             <div>
-                <p style={{textAlign: 'right', marginRight: '2em'}}>Sivu: {this.state.maat.number+1} / {this.state.maat.totalPages}</p>
+                <div style={{textAlign: 'center', marginRight: '2em'}}>
+                    Sivu:<br/>
+                    <input style={{width: '2em'}} value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
+                    / {this.state.maat.totalPages}
+                    <br/>
+                    {this.state.page !== 1 && <button className="btn btn-primary" onClick={this.previouspage}>Previous page</button>}
+                    {this.state.page !== this.state.maat.totalPages &&
+                    <button className="btn btn-primary" onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
+                </div>
                 <table className='table table-hover'>
                     <thead>
                     <tr>
@@ -64,21 +91,10 @@ class CountryList extends Component {
                     </thead>
                     <tbody>{maaelementit}</tbody>
                 </table>
-
                 <hr/>
-
-                <input value={this.state.sivu} onChange={this.muutasivu} onKeyPress={this.näpytintäNäppäilty}/>
-                <button type='button' onClick={this.haemaatfetch}>Hae sivu</button>
             </div>
         );
     }
-    muutasivu = (evt) => {
-        this.setState({sivu: evt.target.value});
-    };
-    näpytintäNäppäilty = (evt) => {
-        if (evt.key === 'Enter') {
-            this.haemaatfetch();
-        }
-    }
 }
+
 export default CountryList;
