@@ -16,17 +16,14 @@ class ReadCountry extends Component {
             })
             .then((olio) => {
                 console.log("Json parsittu", itse.state);
-                itse.setState({country: olio});
-            })
-            .then(()=>{
-                console.log("JEE", this.getImageHeadOfState())});
+                itse.setState({country: olio},this.getImageHeadOfState);
+            });
     };
 
     getImageHeadOfState() {
         var head=this.state.country.headOfState.toString().split(' ').join('_');
         console.log(head);
         var hakuurl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCRpR4LEhRMVAOr12kpayiEUbfGIT-cuX4&cx=008282869857669698649:vhsb_0llar8&q=" + head;
-        var palautettava;
         fetch(hakuurl)
             .then(resp=>{
                 return resp.json();
@@ -35,6 +32,7 @@ class ReadCountry extends Component {
                 console.log(olio);
                 console.log(olio.items[0].pagemap.cse_image[0].src);
                 var kuva = document.createElement("img");
+                kuva = document.createElement("img");
                 kuva.setAttribute('src',olio.items[0].pagemap.cse_image[0].src);
                 document.getElementById('headofstate').appendChild(kuva);
             });
