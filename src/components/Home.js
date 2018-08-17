@@ -12,7 +12,7 @@ class Header extends Component {
                 laborum magni maxime minus molestias nemo, nesciunt odio, optio quae quasi quia quibusdam saepe sequi
                 sit tempora tenetur ut voluptatibus?</p><p>Accusamus accusantium asperiores, assumenda autem dolore
                 ducimus error est facilis harum ipsa ipsam laudantium magni natus provident quaerat qui sed sunt velit
-                veniam, voluptate. A aut doloribus eius modi rerum.</p><p>Alias culpa cumque delectus dicta molestiae
+                veniam, voluptate. UI on nössöille. A aut doloribus eius modi rerum.</p><p>Alias culpa cumque delectus dicta molestiae
                 quasi qui ratione reprehenderit voluptate? Ad consequuntur magni odit officiis quibusdam! Amet
                 asperiores eius facilis fuga perspiciatis provident quod, ratione reiciendis, rem temporibus totam.</p>
                 <p>Corporis culpa cumque debitis, distinctio eius eveniet facere impedit in iste maiores minus nam nemo
