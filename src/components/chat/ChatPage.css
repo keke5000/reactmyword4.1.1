@@ -1,0 +1,27 @@
+.viesti-loota {
+    border-style: solid;
+    border-color: whitesmoke;
+    width: 100%;
+    border-width: 2px;
+    border-radius: 25px;
+    background: lightsteelblue;
+    padding: 20px;
+}
+
+.messages tr:nth-child(even) {
+    border-style: hidden;
+    width: 100%;
+    /*border-collapse: collapse;*/
+    /*border-radius: 2px;*/
+    /*padding: 20px;*/
+    background: whitesmoke;
+}
+
+.msg {
+    border-style: hidden;
+    /*width: 100000px;*/
+    border-width: 2px;
+    border-radius: 25px;
+    padding: 20px;
+    background: lightsteelblue;
+}
