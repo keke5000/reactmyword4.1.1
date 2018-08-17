@@ -68,6 +68,7 @@ class CountryList extends Component {
         });
         return (
             <div>
+                <h2>List of Countries</h2>
                 <p style={{textAlign: 'center', marginRight: '2em'}}>
                     Sivu:<br/>
                     <input style={{width: '2em'}} value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
