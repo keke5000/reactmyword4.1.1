@@ -90,11 +90,11 @@ class ChatPage extends Component {
                         </table>
                     </div>
                 </div>
-                <div className="input-kentta" onKeyPress={this.sendOnKeyPress}>
+                <div className="input-kentta" >
                     <input type="text" placeholder="Username" value={this.state.username}
                            onChange={ev => this.setState({username: ev.target.value})} className="form-control"/>
                     <br/>
-                    <input type="text" placeholder="Message" className="form-control" value={this.state.message}
+                    <input type="text" placeholder="Message"  onKeyPress={this.sendOnKeyPress} className="form-control" value={this.state.message}
                            onChange={ev => this.setState({message: ev.target.value})}/>
                     <br/>
                     <button onClick={this.sendMessage} className="btn btn-primary form-control">Send</button>
