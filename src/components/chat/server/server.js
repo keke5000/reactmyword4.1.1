@@ -1,3 +1,6 @@
+
+// Remote service at use. Please consult developers.
+/*
 var express = require('express');
 const io = require('socket.io')();
 var app = express();
