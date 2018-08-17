@@ -85,7 +85,7 @@ class CountryList extends Component {
                         {/*<td>Paikallinen</td>*/}
                         <td>Capital</td>
                         <td>Continent</td>
-                        <td>READ</td>
+                        <td>Details</td>
 
                     </tr>
                     </thead>

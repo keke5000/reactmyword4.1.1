@@ -44,14 +44,14 @@ class CityList extends Component {
 
     previouspage = () => {
         var p = this.state.page;
-        if (p!==1) {
+        if (p !== 1) {
             this.setState({page: (p - 1)}, this.getCities);
         }
     };
     nextpage = () => {
         var p = this.state.page;
         console.log(p);
-        if (p!==this.state.cities.totalPages) {
+        if (p !== this.state.cities.totalPages) {
             this.setState({page: (p + 1)}, this.getCities);
         }
     };
@@ -66,11 +66,14 @@ class CityList extends Component {
             <div>
                 <p style={{textAlign: 'center', marginRight: '2em'}}>
                     Sivu:<br/>
-                    <input style={{width: '2em'}} value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
+                    <input style={{width: '2em'}} value={this.state.page} onChange={this.changehandler}
+                           onKeyPress={this.refreshPage}/>
                     / {this.state.cities.totalPages}
                     <br/>
-                    {this.state.page!==1 &&<button className="btn" onClick={this.previouspage}>Previous page</button>}
-                    {this.state.page!==this.state.cities.totalPages &&<button className="btn" onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
+                    {this.state.page !== 1 &&
+                    <button className="btn" onClick={this.previouspage}>Previous page</button>}
+                    {this.state.page !== this.state.cities.totalPages &&
+                    <button className="btn" onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
                 </p>
 
                 <table className='table table-hover'>
@@ -79,6 +82,7 @@ class CityList extends Component {
                         <td><b>Name</b></td>
                         <td><b>Country</b></td>
                         <td><b>Population</b></td>
+                        <td><b>Details</b></td>
                     </tr>
                     </thead>
                     <tbody>
