@@ -66,14 +66,14 @@ class CityList extends Component {
             <div>
                 <p style={{textAlign: 'center', marginRight: '2em'}}>
                     Sivu:<br/>
-                    <input value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
+                    <input style={{width: '2em'}} value={this.state.page} onChange={this.changehandler} onKeyPress={this.refreshPage}/>
                     / {this.state.cities.totalPages}
                     <br/>
-                    {this.state.page!==1 &&<button onClick={this.previouspage}>Previous page</button>}
-                    {this.state.page!==this.state.cities.totalPages &&<button onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
+                    {this.state.page!==1 &&<button className="btn" onClick={this.previouspage}>Previous page</button>}
+                    {this.state.page!==this.state.cities.totalPages &&<button className="btn" onLoad={this.shownext} onClick={this.nextpage}>Next page</button>}
                 </p>
 
-                <table className='table-striped table-hover table-bordered'>
+                <table className='table table-hover'>
                     <thead>
                     <tr>
                         <td><b>Name</b></td>
