@@ -21,7 +21,12 @@ class ReadCountry extends Component {
     };
 
     getImageHeadOfState() {
-        var head=this.state.country.headOfState.toString().split(' ').join('_');
+        console.log(this.state.country.headOfState);
+        if (this.state.country.headOfState==='') {
+            var head = "kova_aija";
+        } else {
+            var head = this.state.country.headOfState.toString().split(' ').join('_');
+        }
         console.log(head);
         var hakuurl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCRpR4LEhRMVAOr12kpayiEUbfGIT-cuX4&cx=008282869857669698649:vhsb_0llar8&q=" + head;
         fetch(hakuurl)
