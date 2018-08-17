@@ -37,7 +37,7 @@ class ChatPage extends Component {
             this.socket.emit('message', {
                 author: this.state.username,
                 message: this.state.message
-            })
+            });
             this.setState({message: ''});
 
         }
