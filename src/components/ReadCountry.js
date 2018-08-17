@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Link from "react-router-dom/es/Link";
 
 class ReadCountry extends Component {
     state = {country: []};
@@ -62,6 +63,7 @@ class ReadCountry extends Component {
                             <li className="list-group-item">Region: {this.state.country.region}</li>
                             <li className="list-group-item">Population: {this.state.country.population}</li>
                             <li className="list-group-item">Head of State: {this.state.country.headOfState}</li>
+                            <li><Link to={'/updatecountry/' + this.state.country.code}>Update</Link></li>
                             {/*<li className="list-group-item">{this.state.country.governmentForm}</li>*/}
                             {/*<li className="list-group-item">{this.state.country.capital}</li>*/}
                             {/*<li className="list-group-item">{this.state.country.code2}</li>*/}
