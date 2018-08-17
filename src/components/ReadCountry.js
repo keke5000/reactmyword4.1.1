@@ -24,6 +24,9 @@ class ReadCountry extends Component {
         console.log(this.state.country.headOfState);
         if (this.state.country.headOfState==='') {
             var head = "kova_aija";
+            this.state.country.headOfState = 'Kova aija';
+            this.setState(this.state);
+            // this.setState({country: {headOfState:'Kova aija'}});
         } else {
             var head = this.state.country.headOfState.toString().split(' ').join('_');
         }
