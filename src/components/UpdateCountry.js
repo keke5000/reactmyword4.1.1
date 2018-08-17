@@ -19,24 +19,29 @@ class UpdateCountry extends Component {
     };
 
     handleNameChange = (event) => {
-        this.setState({ name: event.target.value })
+        this.state.country.name = event.target.value;
+        this.setState(this.state)
     }
 
     handleCodeChange = (event) => {
-        this.setState({ code: event.target.value })
+        this.state.country.code = event.target.value;
+        this.setState(this.state)
     }
 
     handlePopulationChange = (event) => {
-        this.setState({ population: event.target.value })
+        this.state.country.population = event.target.value;
+        this.setState(this.state)
     }
 
     handleHeadofstateChange = (event) => {
-        this.setState({ headOfState: event.target.value })
+        this.state.country.headOfState = event.target.value;
+        this.setState(this.state)
     }
 
     handleCreateClick = (e) => {
+        // TODO
         e.preventDefault();
-            this.setState({ code: '', name: '', population: '', headOfState: '' });
+            this.setState(this.state);
     }
 
     render(){
